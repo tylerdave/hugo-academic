@@ -327,3 +327,13 @@ ul.ul-edu li .description p.institution {
         display:block !important;
     }
 }
+
+/*************************************************
+ *  DaveOps Customizations
+ **************************************************/
+
+.talk-event {
+    font-style: italic;
+}
+
+

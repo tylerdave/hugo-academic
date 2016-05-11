@@ -2,7 +2,7 @@
 event = ""
 tytle = ""
 abstract = ""
-url_slides = ""
-url_video = ""
-url_code = ""
+slides_speakerdeck_id = ""
+video_youtube_id = ""
+code_url = ""
 +++
