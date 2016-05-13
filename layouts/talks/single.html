@@ -4,14 +4,15 @@
 
     <h1>{{ .Title }}</h1>
     <p class="talk-event">
-    {{ if le .Params.talk_date .Now }}Presented{{ else }}Presenting{{ end }} at
-    {{ if .Params.event_url }}
-        <a href="{{ .Params.event_url }}">{{ .Params.event }}</a>
-    {{ else }}
-        {{ .Params.event }}
+    {{ if .Params.talk_date }}
+        {{ if le .Params.talk_date .Now }}Presented{{ else }}Presenting{{ end }} at
+        {{ if .Params.event_url }}
+            <a href="{{ .Params.event_url }}">{{ .Params.event }}</a>
+        {{ else }}
+            {{ .Params.event }}
+        {{ end }}
+        on <time datetime="{{ .Params.talk_date }}">{{ .Params.talk_date |  dateFormat "2006-01-02" }}</time></p>
     {{ end }}
-    on <time datetime="{{ .Params.talk_date }}">{{ .Params.talk_date |  dateFormat "2006-01-02" }}</time></p>
-   
 
     {{ if .Params.abstract }}
     <h2>Abstract</h2>
