@@ -36,6 +36,7 @@
 
         {{ .Content }}
         <div class="row">
+            {{ if .Site.Params.interests }}
 
             <div class="col-md-5">
                 <h2>Interests</h2>
@@ -45,6 +46,7 @@
                     {{ end }}
                 </ul>
             </div>
+            {{ end }}
 <!--
 
             <div class="col-md-7">

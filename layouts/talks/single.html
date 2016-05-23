@@ -4,32 +4,35 @@
 
     <h1>{{ .Title }}</h1>
     <p class="talk-event">
-    {{ if .Params.talk_date }}
-        {{ if le .Params.talk_date .Now }}Presented{{ else }}Presenting{{ end }} at
+    {{ if .Params.event_date }}
+        {{ if le .Params.event_date .Now }}Presented{{ else }}Presenting{{ end }} at
         {{ if .Params.event_url }}
             <a href="{{ .Params.event_url }}">{{ .Params.event }}</a>
         {{ else }}
             {{ .Params.event }}
         {{ end }}
-        on <time datetime="{{ .Params.talk_date }}">{{ .Params.talk_date |  dateFormat "2006-01-02" }}</time></p>
+        on <time datetime="{{ .Params.event_date }}">{{ .Params.event_date |  dateFormat "2006-01-02" }}</time></p>
     {{ end }}
 
     {{ if .Params.abstract }}
     <h2>Abstract</h2>
-    <details>
-        <summary>{{ .Params.abstract_summary }}</summary>
-        <p>somethign</p>
+        {{ .Params.abstract | markdownify }}
     </details>
     {{ end }}
 
-    {{ if .Params.url_video }}
+    {{ if .Params.video_youtube_id }}
     <h2>Video</h2>
-    {{ .Params.url_video }}
+    {{ partial "youtube.html" . }}
     {{ end }}
 
-    {{ if .Params.url_slides }}
+    {{ if .Params.slides_speakerdeck_id }}
     <h2>Slides</h2>
-    {{ .Params.url_slides }}
+    {{ partial "speakerdeck.html" . }}
+    {{ end }}
+
+    {{ if .Params.code }}
+    <h2>Code</h2>
+    {{ .Params.code | markdownify}}
     {{ end }}
 
     {{ if .Content }}
